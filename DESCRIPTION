@@ -1,16 +1,13 @@
 Package: PatiDem
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = structure("YOUR-ORCID-ID", .Names = "ORCID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Title: Characterization of PATIent DEMographics
+Version: 0.0.1
+Authors: Heewon Seo 
+Maintainer: Heewon Seo <Heewon.Seo@uhnresearch.ca>
+Description: This package contains a set of functions to characterize patient
+    demographis in TCGA.
+License: None
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.4.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
