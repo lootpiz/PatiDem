@@ -1,3 +1,26 @@
+#' Import TCGA metadata
+#'
+#' Download TCGA metadata (.xlsx) from the GDC data portal
+#'
+#' @param URL \code{character} A remote URL for the clinical information
+#' @param fileName \code{character} A new file name to be saved
+#' @param fileType \code{character} A file type
+#' @param directory \code{character} A path to a directory where the file
+#'     will be saved, create a directory if it does not exist
+#' @param sheetIndex \code{numeric} The index of the sheet (.xlsx) to read data from
+#' @param verbose \code{logical} Print status message during download, 
+#'     defaults to TRUE
+#'
+#' @return A downloaded matrix
+#'
+#' @example
+#' tcga <- downloadData()
+#'
+#' @author Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}
+#'
+#' @export
+#' @importFrom downloader download
+#' @importFrom openxlsx read.xlsx
 downloadData <- function(URL = NULL, fileName = NULL, fileType = "EXCEL", 
     directory = file.path(".", "TCGA"), sheetIndex = 1, verbose = TRUE)
 {
