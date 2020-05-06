@@ -1,0 +1,54 @@
+---
+title: "PatiDem"
+author:
+- name: Heewon Seo
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{PatiDem}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+A package to characterize patient demographics
+
+## Install the package
+```{r install, eval=FALSE}
+intall.packages("devtools")
+library(devtools)
+devtools::install_github("lootpiz/PatiDem")
+```
+
+## Load the package
+```{r load}
+library(PatiDem)
+```
+
+## Download the TCGA metadata
+```{r load_file}
+tcga <- downloadData()
+```
+
+## Generate a boxplot
+```{r boxplot, fig.width = 6, fig.height = 6}
+visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
+    phenotype = "age_at_initial_pathologic_diagnosis",
+    metadata_col = "race",
+    metadata_levels = c("WHITE", "ASIAN"))
+```
+
+## Statistical testing
+```{r stat_testing}
+df <- data.frame(column_one = tcga$gender, column_two = tcga$vital_status)
+statisticalTesting(df, categorical = T)
+
+df <- data.frame(column_one = tcga$age, column_two = tcga$race)
+statisticalTesting(df, categorical = F)
+```
