@@ -1,3 +1,31 @@
+#' Generate a boxplot
+#'
+#' Generate a boxplot to compare a specific phenotype for a set of samples.
+#'
+#' @param object \code{matrix} Patient information (matrix)
+#' @param cancer_type \code{vector} A vector of cancer types of interest from 
+#'     'type' column
+#' @param patients \code{vector} A vector of patient barcodes from 
+#'     'bcr_patient_barcode' column
+#' @param phenotype \code{character} A string of a specific phenotype (column name)
+#' @param metadata_col \code{character} A string of the column name (phenotype) 
+#'     to be split into groups
+#' @param metadata_levels \code{vector} A vector of two values (factors) to be 
+#'     compared
+#' 
+#' @return None/plot a box plot
+#'
+#' @example
+#' tcga <- downloadData()
+#'
+#' visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
+#'     phenotype = "age_at_initial_pathologic_diagnosis",
+#'     metadata_col = "race", 
+#'     metadata_levels = c("WHITE", "ASIAN"))
+#'
+#' @author Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}
+#'
+#' @export
 visualizationBox <- function(object, cancer_type = NULL, patients = NULL,
     phenotype, metadata_col, metadata_levels)
 {
