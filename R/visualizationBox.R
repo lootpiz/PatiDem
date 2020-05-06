@@ -15,7 +15,7 @@
 #' 
 #' @return None/plot a box plot
 #'
-#' @example
+#' @examples
 #' tcga <- downloadData()
 #'
 #' visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
@@ -35,8 +35,7 @@ visualizationBox <- function(object, cancer_type = NULL, patients = NULL,
 
     phenotype_index = grep(phenotype, colnames(object))
     if (!is.numeric(object[,phenotype_index]) || length(phenotype_index) == 0) {
-        stop("Invalid phenotype to compare. Please provide a column name with
-            continuous variables.")
+        stop("Invalid phenotype to compare. Please provide a column name with continuous variables.")
     }
 
     cancer_type_valid = is.element(cancer_type, unique(as.character(object$type)))
@@ -49,8 +48,8 @@ visualizationBox <- function(object, cancer_type = NULL, patients = NULL,
 
     patients_valid = is.element(patients, unique(as.character(object$bcr_patient_barcode)))
     if (!all(patients_valid)) {
-        stop(sprintf("Invalid patients barcode. Please check your patients
-            argument: %s", paste(patients, collapse = ", ")))
+        stop(sprintf("Invalid patients barcode. Please check your patients argument: %s",
+            paste(patients, collapse = ", ")))
     } else {
         patients_indices = which(as.character(object$bcr_patient_barcode) %in% patients)
     }
