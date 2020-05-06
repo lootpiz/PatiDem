@@ -98,10 +98,10 @@ statisticalTesting(df, categorical=TRUE)
 ```
 
 ## References & Tutorials
-  * Introduction: [[http://r-pkgs.had.co.nz/intro.html|http://r-pkgs.had.co.nz/intro.html]]
-  * Making packages in R using devtools: [[https://uoftcoders.github.io/studyGroup/lessons/r/packages/lesson/|https://uoftcoders.github.io/studyGroup/lessons/r/packages/lesson/]]
-  * Writing documentation with Roxygen2: [[https://kbroman.org/pkg_primer/pages/docs.html|https://kbroman.org/pkg_primer/pages/docs.html]]
-  * Unit Testing in R: [[https://towardsdatascience.com/unit-testing-in-r-68ab9cc8d211|https://towardsdatascience.com/unit-testing-in-r-68ab9cc8d211]]
-  * [[https://testthat.r-lib.org/reference/index.html|testthat]]
-  * [[https://kbroman.org/knitr_knutshell/|knitr in a knutshell]]
+  * Introduction: http://r-pkgs.had.co.nz/intro.html
+  * Making packages in R using devtools: https://uoftcoders.github.io/studyGroup/lessons/r/packages/lesson/
+  * Writing documentation with Roxygen2: https://kbroman.org/pkg_primer/pages/docs.html
+  * knitr in a knutshell: https://kbroman.org/knitr_knutshell/
+  * Unit Testing in R: https://towardsdatascience.com/unit-testing-in-r-68ab9cc8d211
+  * testthat: https://testthat.r-lib.org/reference/index.html
 
