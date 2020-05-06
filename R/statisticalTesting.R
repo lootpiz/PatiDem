@@ -26,7 +26,7 @@
 #'
 #' @export
 #' @importFrom DescTools CochranArmitageTest
-statisticalTesting <- function(df, categorial = FALSE) 
+statisticalTesting <- function(df, categorical = FALSE) 
 {
     if (!categorical) { # continuous variables
         if (!is.numeric(df$column_one)) {
@@ -85,7 +85,7 @@ statisticalTesting <- function(df, categorial = FALSE)
             odds.ratio = odds.ratio,
             odds.ratio.95CI = odds.ratio.95CI)
 
-        class(zz) <- "Categorical vriables"
+        class(zz) <- "Categorical variables"
         zz
     }
 }
