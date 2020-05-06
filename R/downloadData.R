@@ -13,7 +13,7 @@
 #'
 #' @return A downloaded matrix
 #'
-#' @example
+#' @examples
 #' tcga <- downloadData()
 #'
 #' @author Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}
@@ -30,13 +30,18 @@ downloadData <- function(URL = NULL, fileName = NULL, fileType = "EXCEL",
     if (is.null(fileName)) {
         fileName = "TCGA_Patient_Info.xlsx"
     }
+    if (sheetIndex < 1) {
+        stop("Invalid index of the sheet. Please provide an index greater than 1.")
+    }
     if (!file.exists(directory)) { # Create a directory
         dir.create(directory, recursive = TRUE)
     }
-    if (!file.exists(file.path(directory, fileName))) { # download a file
-        downloader::download(url = URL, destfile = file.path(directory, fileName), 
-            quiet = !verbose)
+    if (file.exists(file.path(directory, fileName))) {
+        warnings(sprintf("%s already exists in this location. The file will be replaced.",
+            fileName))
     }
+    downloader::download(url = URL, destfile = file.path(directory, fileName),
+        quiet = !verbose)
     na.strings = c("[Not Available]", "[Not Applicable]", "[Not Evaluated]",
         "[Unknown]", "[Discrepancy]")
     if (fileType == "EXCEL") { # read an Excel file
@@ -48,7 +53,7 @@ downloadData <- function(URL = NULL, fileName = NULL, fileType = "EXCEL",
         object <- read.table(file.path(directory, fileName), header = TRUE, sep="\t",
             stringsAsFactor = FALSE, fill=TRUE, na.strings = na.strings)
     } else {
-        stop("Unknown fileType. Please provide either [EXCEL | CSV | TXT] for your file.")
+        stop("Unknown fileType. Please provide either EXCEL, CSV, or TXT.")
     }
     return(.initialFiltering(object))
 }
