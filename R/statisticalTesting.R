@@ -1,3 +1,31 @@
+#' Perform statistical testing
+#'
+#' Carry out statistical testing depending on variables 
+#' (either categorical or discrete variables)
+#'
+#' @param df \code{data frame} A data frame that has two columns (column_one 
+#'     and column_two). For categorical variables, column_one and column_two 
+#'     possess each category. On the other hand, column_one must be a numeric
+#'     vector, while column_two contains the factor to be compared for 
+#'     continuous variables.
+#' @param categorical \code{logical} A logical value whether input is categorical variables
+#'
+#' @return A list of statistical results
+#'
+#' @examples
+#' tcga <- downloadData()
+#'
+#' df <- data.frame(column_one = tcga$gender, column_two = tcga$vital_status)
+#' statisticalTesting(df, categorical = TRUE)
+#'
+#' df <- data.frame(column_one = tcga$age_at_initial_pathologic_diagnosis,
+#'     column_two = tcga$race)
+#' statisticalTesting(df, categorical = FALSE)
+#'
+#' @author Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}
+#'
+#' @export
+#' @importFrom DescTools CochranArmitageTest
 statisticalTesting <- function(df, categorial = FALSE) 
 {
     if (!categorical) { # continuous variables
