@@ -44,6 +44,11 @@ visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
     metadata_col = "race", 
     metadata_levels = c("WHITE", "ASIAN"))
 
+visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
+    phenotype = "age_at_initial_pathologic_diagnosis",
+    metadata_col = "race", 
+    metadata_levels = c("WHITE", "ASIAN", "BLACK OR AFRICAN AMERICAN"))
+
 }
 \author{
 Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}

@@ -23,6 +23,11 @@
 #'     metadata_col = "race", 
 #'     metadata_levels = c("WHITE", "ASIAN"))
 #'
+#' visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
+#'     phenotype = "age_at_initial_pathologic_diagnosis",
+#'     metadata_col = "race", 
+#'     metadata_levels = c("WHITE", "ASIAN", "BLACK OR AFRICAN AMERICAN"))
+#'
 #' @author Heewon Seo, \email{Heewon.Seo@uhnresearch.ca}
 #'
 #' @export
@@ -66,12 +71,8 @@ visualizationBox <- function(object, cancer_type = NULL, patients = NULL,
         stop(sprintf("Invalid levels %s in the column %s and/or too less levels.",
             paste(metadata_levels, collapse = ", "), metadata_col))
     } else {
-        metadata_level_one_indices = which(as.character(object[,metadata_col_index]) %in%
-            metadata_levels[1])
-        metadata_level_two_indices = which(as.character(object[,metadata_col_index]) %in%
-            metadata_levels[2])
-        metadata_levels_indices = union(metadata_level_one_indices,
-            metadata_level_two_indices)
+        metadata_levels_indices = which(as.character(object[,metadata_col_index]) %in% 
+            metadata_levels)
     }
 
     if (!is.null(cancer_type)) {
@@ -82,10 +83,10 @@ visualizationBox <- function(object, cancer_type = NULL, patients = NULL,
             length(metadata_levels_indices))
     }
 
-    boxplot(object[metadata_level_one_indices, phenotype_index],
-        object[metadata_level_two_indices, phenotype_index],
-        names = c(paste0(metadata_levels[1], ", N=", length(metadata_level_one_indices)),
-            paste0(metadata_levels[2], ", N=", length(metadata_level_two_indices))),
+    color_func = colorRampPalette(c("grey20", "white"))
+
+    boxplot(object[metadata_levels_indices, phenotype_index] ~ object[metadata_levels_indices, 
+        metadata_col_index],
         xlab = toupper(metadata_col), ylab = toupper(phenotype),
-        main = plot_title, pch = 20, col = c("#F2A104", "#1D65A6"))
+        main = plot_title, pch = 20, col = color_func(length(metadata_levels)))
 }

@@ -4,7 +4,7 @@
 \alias{statisticalTesting}
 \title{Perform statistical testing}
 \usage{
-statisticalTesting(df, categorial = FALSE)
+statisticalTesting(df, categorical = FALSE)
 }
 \arguments{
 \item{df}{\code{data frame} A data frame that has two columns (column_one
