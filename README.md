@@ -1,4 +1,4 @@
-# PatiDem
+ PatiDem
  * Characterization of PATIent DEMographics
 
 ## How to create a package
@@ -54,7 +54,7 @@ tcga <- downloadData()
 visualizationBox(tcga, cancer_type = c("BLCA", "BRCA"),
     phenotype = "age_at_initial_pathologic_diagnosis",
     metadata_col = "race",
-    metadata_levels = c("WHITE", "ASIAN"))
+    metadata_levels = c("WHITE", "ASIAN", "BLACK OR AFRICAN AMERICAN"))
 ```
 ![A boxplot](./data/boxplot.png)
 
