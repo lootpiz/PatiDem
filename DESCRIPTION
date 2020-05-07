@@ -8,6 +8,10 @@ Description: This package contains a set of functions to characterize patient
 License: None
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    downloader,
+    openxlsx,
+    DescTools
 Depends: R (>= 3.4.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
