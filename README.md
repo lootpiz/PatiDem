@@ -1,4 +1,4 @@
-## PatiDem
+# PatiDem
  * Characterization of PATIent DEMographics
 
 ## How to create a package
